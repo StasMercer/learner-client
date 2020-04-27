@@ -122,8 +122,6 @@ function Course(props) {
                     <Card>
 
                         <Card.Content>
-                            <Image style={{marginBottom: '5px'}} src='https://react.semantic-ui.com/images/avatar/large/matthew.png'
-                                   size='tiny'/>
                             <Card.Header>Вчитель</Card.Header>
                             <Card.Description>
                                 {data.getCourse.ownerName}
