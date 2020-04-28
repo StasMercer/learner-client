@@ -30,7 +30,7 @@ function UserInCourse({ course }) {
 
     return (
         <div>
-            {user.id === course.owner ? (
+            {(user.id === course.owner ) || (user.role === 'admin')? (
                 <TeacherCourse course={course} />
             ) : (
                 <StudentCourse
