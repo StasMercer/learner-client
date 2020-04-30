@@ -5,9 +5,10 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { setContext } from 'apollo-link-context';
-
+const uri = "http://localhost:5000"
+const prodUri = 'https://sleepy-temple-09713.herokuapp.com/';
 const httpLink = createHttpLink({
-  uri: 'https://sleepy-temple-09713.herokuapp.com/'
+  uri: prodUri
 });
 
 const authLink = setContext(() => {

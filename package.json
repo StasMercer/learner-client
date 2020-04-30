@@ -55,5 +55,5 @@
   "devDependencies": {
     "eslint-plugin-react-hooks": "^3.0.0"
   },
-  "proxy" : "https://sleepy-temple-09713.herokuapp.com/"
+  "proxy": "https://sleepy-temple-09713.herokuapp.com/"
 }

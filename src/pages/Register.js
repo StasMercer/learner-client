@@ -132,6 +132,7 @@ const REGISTER_USER = gql`
             email
             createdAt
             token
+            role
         }
     }
 `;

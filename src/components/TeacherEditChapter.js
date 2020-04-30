@@ -141,7 +141,8 @@ function TeacherEditChapter(props) {
                 />
 
                 {values.media && <Embed icon="play" url={values.media} />}
-                <Form.Input
+                {props.chapter.type == 'lecture' && (
+                    <Form.Input
                     onChange={(event) => {
                         setFile(event.target.files[0]);
                     }}
@@ -150,6 +151,8 @@ function TeacherEditChapter(props) {
                     text="Нове медіа"
                     accept=".mp4, .pdf"
                 />
+                )}
+                
 
                 <Form.TextArea
                     style={{
