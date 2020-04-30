@@ -17,15 +17,16 @@ function TeacherEditTest({ test, courseId, chapterIndex, testIndex }) {
     );
     const [errors, setErrors] = useState({});
     const [updateTest, { loading }] = useMutation(UPDATE_TEST, {
-        update(proxy, { data}) {
+        update(proxy, { data:{updateTestInChapter: newTest}}) {
             try {
                 const data = proxy.readQuery({
                     query: GET_COURSE,
                     variables: { courseId: courseId },
                 });
-                data.getCourse.chapters[chapterIndex].tests[testIndex].question = values.question;
-                data.getCourse.chapters[chapterIndex].tests[testIndex].variants = values.variants;
-                data.getCourse.chapters[chapterIndex].tests[testIndex].answer = values.answer;
+                console.log(newTest);
+                data.getCourse.chapters[chapterIndex].tests[testIndex].question = newTest.question;
+                data.getCourse.chapters[chapterIndex].tests[testIndex].variants = newTest.variants;
+                data.getCourse.chapters[chapterIndex].tests[testIndex].answer = newTest.answer;
                 proxy.writeQuery({ query: GET_COURSE, data });
                 setErrors({});
             } catch (e) {
@@ -52,7 +53,7 @@ function TeacherEditTest({ test, courseId, chapterIndex, testIndex }) {
                 answer: test.answer ? test.answer : [],
             });
 
-    }, [test, setValues]);
+    }, [test]);
     if (!test) return null;
 
     return (
@@ -122,7 +123,7 @@ function TeacherEditTest({ test, courseId, chapterIndex, testIndex }) {
                     basic
                     icon="plus"
                     onClick={() => {
-                        values.variants.push('новий варіант');
+                        values.variants = [...values.variants, 'новий варіант'];
                         setValues({ ...values });
                     }}
                 />
@@ -157,7 +158,11 @@ const UPDATE_TEST = gql`
             chapterIndex: $chapterIndex
             testIndex: $testIndex
             test: { question: $question, answer: $answer, variants: $variants }
-        )
+        ){
+            question
+            variants
+            answer
+        }
     }
 `;
 
