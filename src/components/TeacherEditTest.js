@@ -23,6 +23,7 @@ function TeacherEditTest({ test, courseId, chapterIndex, testIndex }) {
                     query: GET_COURSE,
                     variables: { courseId: courseId },
                 });
+                data.getCourse.chapters[chapterIndex].tests[testIndex].question = values.question;
                 data.getCourse.chapters[chapterIndex].tests[testIndex].variants = values.variants;
                 data.getCourse.chapters[chapterIndex].tests[testIndex].answer = values.answer;
                 proxy.writeQuery({ query: GET_COURSE, data });
