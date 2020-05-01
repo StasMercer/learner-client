@@ -43,7 +43,7 @@ export default function Home() {
                     <Label size={"large"} color={"teal"}>Можливість проходити курс поетапно</Label>
                 </List.Item>
                 <List.Item >
-                    <Label size={"large"} color={"orange"}>Відсліджування прогресу</Label>
+                    <Label size={"large"} color={"orange"}>Відслідковування прогресу</Label>
                 </List.Item>
                 <List.Item >
                     <Label size={"large"} color={"purple"}>Отримання сертифікату</Label>
