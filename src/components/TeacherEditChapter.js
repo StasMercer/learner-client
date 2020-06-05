@@ -140,7 +140,8 @@ function TeacherEditChapter(props) {
                     value={values.chapterName}
                 />
 
-                {values.media && <Embed icon="play" url={values.media} />}
+                {values.media && props.chapter.type != 'test' &&<Embed icon="play" url={values.media} />}
+                
                 {props.chapter.type == 'lecture' && (
                     <Form.Input
                     onChange={(event) => {

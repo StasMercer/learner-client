@@ -110,7 +110,7 @@ function StudentCourse({course, userChapters, right, wrong}) {
 
                     <p></p>
                     <h1>{course.chapters[chapterIndex].chapterName}</h1>
-                    {course.chapters[chapterIndex].media && (
+                    {course.chapters[chapterIndex].media && course.chapters[chapterIndex].type != 'test' && (
                         <Embed
                             icon="play"
                             url={course.chapters[chapterIndex].media}
