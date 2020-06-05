@@ -5,7 +5,7 @@ import {useMutation} from "@apollo/react-hooks";
 import gql from "graphql-tag/src";
 import MessageError from "../components/MessageError";
 import {withRouter} from 'react-router-dom'
-import {GET_USER_PROGRESS} from "../utils/graphql";
+import {GET_COURSES, GET_USER_PROGRESS} from "../utils/graphql";
 
 function CreateCourse(props) {
 
@@ -37,7 +37,8 @@ function CreateCourse(props) {
                 console.log(err)
             }
         },
-        variables: values
+        variables: values,
+        refetchQueries:[{query: GET_USER_PROGRESS, variables:{}}, {query: GET_COURSES, variables:{after:null}}, ]
     });
     if(loading) return <Loader active inline="centered" />;
 

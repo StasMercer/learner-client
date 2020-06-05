@@ -4,7 +4,7 @@ import TeacherEditTest from './TeacherEditTest';
 import { useForm } from '../utils/hooks';
 import firebase from '../utils/firebase';
 import 'firebase/storage';
-import { useMutation } from '@apollo/react-hooks';
+import {useApolloClient, useMutation} from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { GET_COURSE } from '../utils/graphql';
 
@@ -18,8 +18,8 @@ function TeacherEditChapter(props) {
             type: '',
         }
     );
-
-
+    const client = useApolloClient();
+    console.log(client);
     useEffect(() => {
         if (props.chapter) {
             setValues({

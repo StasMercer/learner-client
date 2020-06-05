@@ -1,5 +1,25 @@
 import gql from 'graphql-tag/src';
 
+const GET_COURSES = gql`
+    query getCoursesFeed($after: String){
+        getCoursesFeed(pageSize: 10, after: $after){
+            cursor
+            hasMore
+            courses{
+                ownerName
+                description
+                membersCount
+                createdAt
+                id
+                courseName
+                owner
+            }
+
+        }
+    }
+
+`;
+
 const UPDATE_USER_PROGRESS = gql`
     mutation updateUserProgress(
         $courseId: ID!
@@ -38,18 +58,21 @@ const UPDATE_USER_PROGRESS = gql`
 const GET_USER_PROGRESS = gql`
     query getUser {
         getUser {
+            role
             progress {
                 right
                 wrong
-                courseId
-                chapters {
-                    wasMade
-                    studentTest {
+                chapters{
+
+                    studentTest{
                         testMade
                         rightAnswer
                         studentAnswer
                     }
+                    wasMade
                 }
+                courseId
+                courseName
             }
         }
     }
@@ -77,6 +100,31 @@ const GET_COURSE = gql`
             }
         }
     }
+`;
+const REMOVE_USER_FROM_COURSE = gql`
+    mutation removeUserFromCourse($courseId: ID!){
+        removeUserFromCourse(courseId: $courseId){
+            role
+            progress{
+                right
+                wrong
+                courseId
+                chapters{
+                    wasMade
+
+                    studentTest{
+                        testMade
+                        rightAnswer
+                        studentAnswer
+                    }
+
+                }
+                
+                courseName
+            }
+        }
+    }
+
 `;
 const GET_CYCLES = gql`
     query getCycles {
@@ -215,8 +263,24 @@ const REMOVE_ADMIN_MESSAGE = gql`
 
 `
 
+const GET_USER_COURSES = gql`
+    query getUser{
+        getUser{
+            progress{
+                right
+                wrong
+                courseId
+            }
+        }
+    }
+
+`
+
 export {
+    GET_COURSES,
+    REMOVE_USER_FROM_COURSE,
     UPDATE_USER_PROGRESS,
+    GET_USER_COURSES,
     GET_USER_PROGRESS,
     GET_COURSE,
     GET_CYCLES,

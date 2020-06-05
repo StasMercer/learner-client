@@ -3,8 +3,8 @@ import {Link, useParams} from 'react-router-dom'
 import {useMutation, useQuery} from "@apollo/react-hooks";
 import gql from "graphql-tag/src";
 import UserInCourse from "../components/UserInCourse";
-import {Button, Card, Container, Grid, Icon, Image, List, Loader, Message} from "semantic-ui-react";
-import {GET_COURSE, GET_USER_PROGRESS} from "../utils/graphql";
+import {Button, Card, Container, Grid, Icon, List, Loader, Message} from "semantic-ui-react";
+import {GET_COURSE, GET_USER_COURSES, GET_USER_PROGRESS} from "../utils/graphql";
 import {AuthContext} from "../context/auth";
 
 function Course(props) {
@@ -162,18 +162,6 @@ const ADDUSERTOCOURSE = gql`
 `;
 
 
-const GET_USER_COURSES = gql`
-    query getUser{
-        getUser{
-            
-            progress{
-                right
-                wrong
-                courseId
-            }
-        }
-    }
 
-`
 
 export default Course;

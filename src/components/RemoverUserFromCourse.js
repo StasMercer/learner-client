@@ -1,8 +1,7 @@
 import {Button, Header, Icon, Modal} from "semantic-ui-react";
 import React, {useState} from "react";
-import gql from "graphql-tag/src";
 import {useMutation} from "@apollo/react-hooks";
-import {GET_USER_PROGRESS} from "../utils/graphql";
+import {GET_USER_PROGRESS, REMOVE_USER_FROM_COURSE} from "../utils/graphql";
 
 function RemoveUserFromCourse({courseId}) {
     const [modalOpen, setModalOpen] = useState(false)
@@ -52,28 +51,6 @@ function RemoveUserFromCourse({courseId}) {
     )
 }
 
-const REMOVE_USER_FROM_COURSE = gql`
-    mutation removeUserFromCourse($courseId: ID!){
-        removeUserFromCourse(courseId: $courseId){
-            progress{
-                right
-                wrong
-                courseId
-                chapters{
-                    wasMade
-                    
-                    studentTest{
-                        testMade
-                        rightAnswer
-                        studentAnswer
-                    }
-                    
-                }
-                courseName
-            }
-        }
-    }
 
-`
 
 export default RemoveUserFromCourse;

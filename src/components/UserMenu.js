@@ -5,6 +5,7 @@ import {useQuery} from "@apollo/react-hooks";
 import {Link, withRouter} from "react-router-dom";
 import RemoveUserFromCourse from "./RemoverUserFromCourse";
 import AddAdminContent from "./AddAdminContent";
+import {GET_USER_PROGRESS} from "../utils/graphql";
 
 function UserMenu(props) {
     const { data, client } = useQuery(GET_USER_PROGRESS, {});
@@ -61,27 +62,6 @@ function UserMenu(props) {
     );
 }
 
-const GET_USER_PROGRESS = gql`
-    query getUser {
-        getUser {
-            role
-            progress {
-                right
-                wrong
-                chapters{
-                    
-                    studentTest{
-                        testMade
-                        rightAnswer
-                        studentAnswer
-                    }
-                    wasMade
-                }
-                courseId
-                courseName
-            }
-        }
-    }
-`;
+
 
 export default withRouter(UserMenu);

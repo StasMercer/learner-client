@@ -1,8 +1,8 @@
 import React from 'react'
-import gql from "graphql-tag/src";
 import {useQuery} from "@apollo/react-hooks";
 import CourseCard from "../components/CourseCard";
 import {Button, Loader} from "semantic-ui-react";
+import {GET_COURSES} from "../utils/graphql";
 
 function Courses() {
     const { data, loading, fetchMore} = useQuery(GET_COURSES, {
@@ -43,24 +43,6 @@ function Courses() {
     )
 }
 
-const GET_COURSES = gql`
-    query getCoursesFeed($after: String){
-        getCoursesFeed(pageSize: 10, after: $after){
-            cursor
-            hasMore
-            courses{
-                ownerName
-                description
-                membersCount
-                createdAt
-                id
-                courseName
-                owner
-            }
 
-        }
-    }
-
-`
 
 export default Courses

@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
-import {
-    Button,
-    Confirm,
-    Dropdown,
-    Icon,
-    Menu,
-    Segment,
-    Sidebar,
-} from 'semantic-ui-react';
+import React, {useState} from 'react';
+import {Button, Confirm, Dropdown, Icon, Menu, Segment, Sidebar,} from 'semantic-ui-react';
 import {withRouter} from 'react-router-dom';
 import TeacherEditChapter from './TeacherEditChapter';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation} from '@apollo/react-hooks';
 import gql from 'graphql-tag/src';
-import {GET_COURSE, REMOVE_COURSE} from '../utils/graphql';
+import {
+    GET_COURSE,
+    GET_COURSES,
+    GET_USER_PROGRESS,
+    REMOVE_COURSE,
+    REMOVE_USER_FROM_COURSE
+} from '../utils/graphql';
 
-function TeacherCourse({ course, history }) {
+function TeacherCourse({course, history}) {
     const [visible, setVisible] = useState(false);
     const [chapterIndex, setChapterIndex] = useState(0);
     const [chapterValues, setChapterValues] = useState({
@@ -25,22 +23,39 @@ function TeacherCourse({ course, history }) {
     });
     const [openConfirm, setOpenConfirm] = useState(false);
 
+    const [removeUser] = useMutation(REMOVE_USER_FROM_COURSE, {
+        update(proxy, {data: {removeUserFromCourse: {progress}}}) {
+            // const data = proxy.readQuery({
+            //     query: GET_USER_PROGRESS
+            // });
+            // data.getUser.progress = progress;
+            //
+            // proxy.writeQuery({query: GET_USER_PROGRESS, data});
+        },
+        onError(err) {
+            console.log(err)
+        },
+        variables: {
+            courseId: course.id
+        },
+        refetchQueries:[{query: GET_USER_PROGRESS, variables:{}}]
+    })
     const [addChapter] = useMutation(ADD_CHAPTER_TO_COURSE, {
         update(
             proxy,
             {
                 data: {
-                    addChapterToCourse: { chapters },
+                    addChapterToCourse: {chapters},
                 },
             }
         ) {
             try {
                 const data = proxy.readQuery({
                     query: GET_COURSE,
-                    variables: { courseId: course.id },
+                    variables: {courseId: course.id},
                 });
                 data.getCourse.chapters = chapters;
-                proxy.writeQuery({ query: GET_COURSE, data });
+                proxy.writeQuery({query: GET_COURSE, data});
             } catch (e) {
                 console.log(e);
             }
@@ -56,17 +71,17 @@ function TeacherCourse({ course, history }) {
             proxy,
             {
                 data: {
-                    removeChapterFromCourse: { chapters },
+                    removeChapterFromCourse: {chapters},
                 },
             }
         ) {
             try {
                 const data = proxy.readQuery({
                     query: GET_COURSE,
-                    variables: { courseId: course.id },
+                    variables: {courseId: course.id},
                 });
                 data.getCourse.chapters = chapters;
-                proxy.writeQuery({ query: GET_COURSE, data });
+                proxy.writeQuery({query: GET_COURSE, data});
             } catch (e) {
                 console.log(e);
             }
@@ -74,24 +89,31 @@ function TeacherCourse({ course, history }) {
         onError(err) {
             console.log(err);
         },
-        variables: { courseId: course.id, chapterIndex },
+        variables: {courseId: course.id, chapterIndex},
     });
 
     async function handleRemoveChapter() {
         await setOpenConfirm(false);
         await removeChapter();
     }
+
     const [removeCourseOpen, setRemoveCourseOpen] = useState(false);
     const [removeCourse] = useMutation(REMOVE_COURSE)
+
     async function handleRemoveCourse() {
         await setRemoveCourseOpen(false);
-        await removeCourse({variables:{courseId: course.id}}).then(r=>{
-            if(r.data.removeCourse){
+        await removeCourse({
+            variables: {courseId: course.id},
+            refetchQueries: [{query: GET_COURSES, variables: {after: null}}]
+        }).then(r => {
+            if (r.data.removeCourse) {
+                removeUser();
                 history.push('/');
             }
 
         });
     }
+
     async function handleAddChapter(type) {
         let chapterName = 'Новий розділ' + (course.chapters.length + 1);
         let text = 'Напишіть текст';
@@ -115,7 +137,7 @@ function TeacherCourse({ course, history }) {
             >
                 <Menu.Item onClick={() => setVisible(false)} fluid as={Button}>
                     Закрити
-                    <Icon name="close" />
+                    <Icon name="close"/>
                 </Menu.Item>
                 {course.chapters.map((chapter, index) => {
                     return (
@@ -169,12 +191,12 @@ function TeacherCourse({ course, history }) {
                         </div>
                     </Menu.Item>
                 )}
-                <Menu.Item onClick={() => setRemoveCourseOpen(true)} fluid  as={Button}>
+                <Menu.Item onClick={() => setRemoveCourseOpen(true)} fluid as={Button}>
                     Видалити курс
-                    <Icon name="trash" />
+                    <Icon name="trash"/>
                 </Menu.Item>
             </Sidebar>
-            <Sidebar.Pusher style={{ minHeight: '200px' }}>
+            <Sidebar.Pusher style={{minHeight: '200px'}}>
                 <Segment basic>
                     <Button
                         basic
@@ -182,9 +204,9 @@ function TeacherCourse({ course, history }) {
                         onClick={() => {
                             setVisible(true);
                         }}
-                        style={{ marginBottom: '10px' }}
+                        style={{marginBottom: '10px'}}
                     >
-                        <Icon name={'bars'} />
+                        <Icon name={'bars'}/>
                     </Button>
 
                     {course.chapters.length > 0 && (
