@@ -28,6 +28,8 @@ function Register(props) {
 
     const [addUser, {loading}] = useMutation(REGISTER_USER, {
         update(_, {data: {register: userData}}){
+            console.log(userData);
+            
             context.login(userData);
             props.history.push('/');
         },
@@ -128,6 +130,8 @@ const REGISTER_USER = gql`
         $role: String!
     ) {
         register(registerInput: {firstName: $firstName, lastName:$lastName, email: $email, password:$password, confirmPassword:$confirmPassword, role: $role}){
+            firstName
+            lastName
             id
             email
             createdAt
