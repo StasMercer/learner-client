@@ -119,7 +119,7 @@ function TeacherEditChapter(props) {
             console.log(err);
         },
         variables: {
-            question: 'Новий тест ' + (props.chapter && (props.chapter.tests.length + 1)),
+            question: 'New test ' + (props.chapter && (props.chapter.tests.length + 1)),
             courseId: props.courseId,
             chapterIndex: props.chapterIndex,
             variants: ['a', 'b'],
@@ -149,7 +149,7 @@ function TeacherEditChapter(props) {
                     }}
                     name="media"
                     type="file"
-                    text="Нове медіа"
+                    text="New media"
                     accept=".mp4, .pdf"
                 />
                 )}
@@ -172,7 +172,7 @@ function TeacherEditChapter(props) {
                     style={{ marginBottom: '10px' }}
                     primary
                 >
-                    Оновити все
+                    Update all
                 </Button>
             </Form>
             {props.chapter.tests.length > 0 && (
@@ -191,7 +191,7 @@ function TeacherEditChapter(props) {
             )}
             {(values.type === 'test' || values.type === 'control') && (
                 <Button secondary onClick={addTest}>
-                    Додати тест
+                    Add test
                 </Button>
             )}
         </Container>

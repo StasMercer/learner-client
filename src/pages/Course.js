@@ -67,8 +67,8 @@ function Course(props) {
                 </Grid.Column>
 
                 <Grid.Column  width={2} floated={'right'}>
-                    {user?(<Button onClick={addUserToCourse} as={Link} to={'/course/'+ courseId} primary>Записатись</Button>):(
-                        <Button as={Link} to={'/register'} primary>Записатись</Button>
+                    {user?(<Button onClick={addUserToCourse} as={Link} to={'/course/'+ courseId} primary>Enroll</Button>):(
+                        <Button as={Link} to={'/register'} primary>Enroll</Button>
                     )}
 
                 </Grid.Column>
@@ -80,7 +80,7 @@ function Course(props) {
                 <Grid.Column width={16}>
                     <Card fluid>
                         <Card.Content>
-                            <Card.Header>Що ви навчитесь:</Card.Header>
+                            <Card.Header>What will your learn:</Card.Header>
                             <Card.Description>
                                 <Container textAlign={'justified'}>
                                     {data && data.getCourse.description}
@@ -96,7 +96,7 @@ function Course(props) {
                 <Grid.Column>
                     <Card>
                         <Card.Content>
-                            <Card.Header>Програма курсу:</Card.Header>
+                            <Card.Header>Course program:</Card.Header>
                             <Card.Description>
                                 <List divided>
                                     {data.getCourse.chapters.map(element => (
@@ -122,7 +122,7 @@ function Course(props) {
                     <Card>
 
                         <Card.Content>
-                            <Card.Header>Вчитель</Card.Header>
+                            <Card.Header>Teacher</Card.Header>
                             <Card.Description>
                                 {data.getCourse.ownerName}
                             </Card.Description>

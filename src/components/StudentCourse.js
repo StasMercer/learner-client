@@ -42,7 +42,7 @@ function StudentCourse({course, userChapters, right, wrong}) {
         return (
             <Message>
                 {' '}
-                Цей курс поки що порожній, чекайте на оновлення від вчителя
+                This course is empty right now, wait for update
             </Message>
         );
 
@@ -67,7 +67,7 @@ function StudentCourse({course, userChapters, right, wrong}) {
                 width="thin"
             >
                 <Menu.Item onClick={() => setVisible(false)} fluid as={Button}>
-                    Закрити
+                    Close
                     <Icon name="close" />
                 </Menu.Item>
                 {course.chapters.map((chap, index) => (
@@ -153,7 +153,7 @@ function StudentCourse({course, userChapters, right, wrong}) {
                             primary
                             floated={'right'}
                         >
-                            Далі
+                            Next
                         </Button>
                     ):(<Button
                         style={{ marginBottom: '10px' }}
@@ -161,7 +161,7 @@ function StudentCourse({course, userChapters, right, wrong}) {
                         primary
                         floated={'right'}
                     >
-                        Отримати сертифікат
+                        Generate certificate
                     </Button>)}
                 </Segment>
             </Sidebar.Pusher>

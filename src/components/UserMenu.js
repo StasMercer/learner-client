@@ -19,7 +19,7 @@ function UserMenu(props) {
 
         >
             <Dropdown.Menu>
-                <Dropdown.Header content="Ваші курси:"/>
+                <Dropdown.Header content="Your courses:"/>
 
                 {data &&
                 data.getUser.progress.map((course) => (
@@ -37,7 +37,7 @@ function UserMenu(props) {
                 {data && data.getUser.role === 'teacher' && (
                     <Dropdown.Item
                         icon="plus"
-                        text="Новий курс"
+                        text="New course"
                         as={Link}
                         to={"/createcourse"}
                     />
@@ -48,7 +48,7 @@ function UserMenu(props) {
                 )}
                 <Dropdown.Item
                     icon="sign-out"
-                    text="Вийти"
+                    text="Exit"
                     onClick={() => {
                         client.cache.reset().then(() => {
                             props.context.logout();

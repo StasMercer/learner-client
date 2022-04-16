@@ -7,12 +7,12 @@ export default function Home() {
 
     return (
         <div >
-            <h1>Як це працює:</h1>
+            <h1>How does it work:</h1>
             <Step.Group fluid>
                 <Step>
                     <Icon name='search' />
                     <Step.Content>
-                        <Step.Title>Знайди потрібний тобі курс</Step.Title>
+                        <Step.Title>Find the course you need</Step.Title>
 
                     </Step.Content>
                 </Step>
@@ -20,7 +20,7 @@ export default function Home() {
                 <Step>
                     <Icon name='tasks' />
                     <Step.Content>
-                        <Step.Title>Проходь все поетапно</Step.Title>
+                        <Step.Title>Learn step by step</Step.Title>
 
                     </Step.Content>
                 </Step>
@@ -28,43 +28,43 @@ export default function Home() {
                 <Step>
                     <Icon name='payment' />
                     <Step.Content>
-                        <Step.Title>Отримай сертифікат</Step.Title>
+                        <Step.Title>Get the sertificate</Step.Title>
                     </Step.Content>
                 </Step>
             </Step.Group>
             <h1>
-                Можливості для учня:
+                What you get as a student:
             </h1>
             <List >
                 <List.Item>
-                    <Label size={"large"} color={"blue"}>Широкий вибір курсів</Label>
+                    <Label size={"large"} color={"blue"}>Wide range of courses</Label>
                 </List.Item>
                 <List.Item >
-                    <Label size={"large"} color={"teal"}>Можливість проходити курс поетапно</Label>
+                    <Label size={"large"} color={"teal"}>Step by step learning</Label>
                 </List.Item>
                 <List.Item >
-                    <Label size={"large"} color={"orange"}>Відслідковування прогресу</Label>
+                    <Label size={"large"} color={"orange"}>Track your proggress</Label>
                 </List.Item>
                 <List.Item >
-                    <Label size={"large"} color={"purple"}>Отримання сертифікату</Label>
+                    <Label size={"large"} color={"purple"}>Get the sertificate</Label>
                 </List.Item>
             </List>
 
             <h1>
-                Можливості для вчителя:
+                What you get as a teacher:
             </h1>
             <List >
                 <List.Item>
-                    <Label size={"large"} color={"brown"}>Зручний інтерфейс для створення курсів</Label>
+                    <Label size={"large"} color={"brown"}>Convinient interface to create courses</Label>
                 </List.Item>
                 <List.Item >
-                    <Label size={"large"} color={"green"}>Редагування курсу будь-коли</Label>
+                    <Label size={"large"} color={"green"}>Edit courses whenever you want</Label>
                 </List.Item>
                 <List.Item >
-                    <Label size={"large"} color={"olive"}>Завантаження відео-лекцій</Label>
+                    <Label size={"large"} color={"olive"}>Video upload support</Label>
                 </List.Item>
                 <List.Item >
-                    <Label size={"large"} color={"violet"}>Завантаження pdf-документів</Label>
+                    <Label size={"large"} color={"violet"}>PDF upload support</Label>
                 </List.Item>
             </List>
 

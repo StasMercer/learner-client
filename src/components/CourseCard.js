@@ -16,9 +16,9 @@ function CourseCard({ course }) {
                 <Card.Description style={{ marginBottom: '5px' }}>
                     {course.description}
                 </Card.Description>
-                <Card.Meta>Автор: {course.ownerName}</Card.Meta>
+                <Card.Meta>Author: {course.ownerName}</Card.Meta>
                 <Card.Meta>
-                    Створено: {moment(course.createdAt).format('LL')}
+                    Created: {moment(course.createdAt).format('LL')}
                 </Card.Meta>
             </Card.Content>
             <Card.Content extra>
@@ -36,7 +36,7 @@ function CourseCard({ course }) {
                     floated={'right'}
                     primary
                 >
-                    Відкрити
+                    Open
                 </Button>
 
             </Card.Content>

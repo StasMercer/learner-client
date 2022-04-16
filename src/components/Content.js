@@ -134,16 +134,16 @@ function Content(props) {
                         onChange={onChange}
                         name={'messageHeader'}
                         value={values.messageHeader}
-                        placeholder={'Додатей повідомлення'}
+                        placeholder={'Add message'}
                     />
                     <Form.TextArea
                         onChange={onChange}
                         name={'messageText'}
                         value={values.messageText}
-                        placeholder={'Додайте текст повідомлення'}
+                        placeholder={'Add message text'}
                     />
                     <Button primary type={'submit'}>
-                        Додати
+                        Add
                     </Button>
                 </Form>
             )}

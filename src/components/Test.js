@@ -76,7 +76,7 @@ function Test({tests, courseId, chapterIndex, userProgress}) {
                         ))}
                         {(!userProgress || !(userProgress.studentTest[index] && userProgress.studentTest[index].testMade) )&& <Button onClick={()=>{
                             setTestIndex(index);
-                        }} style={{marginTop: '10px'}} secondary>Здати тест</Button>}
+                        }} style={{marginTop: '10px'}} secondary>Pass test</Button>}
 
                     </List>
                 </div>

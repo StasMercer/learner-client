@@ -77,7 +77,7 @@ function CycleCourses() {
             {user && user.role === 'admin' && (
                 <Grid.Column>
                     <Grid.Row>
-                        <Input value={cycleName} placeholder={'Введіть імя нового циклу'} onChange={(e)=>setCycleName(e.target.value)}/>
+                        <Input value={cycleName} placeholder={'Enter the name of new group'} onChange={(e)=>setCycleName(e.target.value)}/>
                         <Button style={{marginLeft: '10px'}} icon={'plus'} basic onClick={() => {
                             if(cycleName.trim() !== ''){
                                 createCycle({variables:{cycleName}}).then(()=> refetch());

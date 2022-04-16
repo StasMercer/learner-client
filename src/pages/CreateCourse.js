@@ -49,20 +49,20 @@ function CreateCourse(props) {
         <Container>
             <Form onSubmit={onSubmit}>
                 <Form.Input
-                    label={'Введіть назву курсу'}
-                    placeholder={'Назва курсу. 100 символів максимум'}
+                    label={'Enter course name'}
+                    placeholder={'Course name. 100 symbols max'}
                     onChange={onChange}
                     name="courseName"
                 />
                 <Form.TextArea
-                    label={'Введіть опис курсу'}
+                    label={'Course description'}
                     placeholder={
-                        'Опишіть чому можна навчитись у вашому курсі. 300 символів максимум'
+                        'Describe course. 300 symbols max'
                     }
                     onChange={onChange}
                     name="description"
                 />
-                <Button type="submit" primary>Підтвердити</Button>
+                <Button type="submit" primary>Confirm</Button>
             </Form>
             {errors && <MessageError errors={errors} />}
 

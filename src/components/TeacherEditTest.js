@@ -123,7 +123,7 @@ function TeacherEditTest({ test, courseId, chapterIndex, testIndex }) {
                     basic
                     icon="plus"
                     onClick={() => {
-                        values.variants = [...values.variants, 'новий варіант'];
+                        values.variants = [...values.variants, 'New variant'];
                         setValues({ ...values });
                     }}
                 />
@@ -133,7 +133,7 @@ function TeacherEditTest({ test, courseId, chapterIndex, testIndex }) {
                     secondary
                     type={'submit'}
                 >
-                    Оновити тест
+                    Update test
                 </Form.Button>
             </Form>
             {Object.keys(errors).length > 0 &&

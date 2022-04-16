@@ -44,7 +44,7 @@ function AddToCycle({ cycleId, courses, cycleIndex }) {
                         search();
                     }
                 }}
-                placeholder={'Додати курс'}
+                placeholder={'Add course'}
             />
             {searchRes && (
                 <List>

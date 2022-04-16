@@ -33,18 +33,18 @@ function RemoveUserFromCourse({courseId}) {
             setModalOpen(true);
             }} name="close"> </Icon>}
                basic size='small'>
-            <Header icon='archive' content='Підтвердіть дію' />
+            <Header icon='archive' content='Confirm action' />
             <Modal.Content>
                 <p>
-                    Ви дійсно хочете вийти з курсу. Досягнений прогрес буде видалено
+                    Are you sure, all proggress will be deleted.
                 </p>
             </Modal.Content>
             <Modal.Actions>
                 <Button onClick={()=>setModalOpen(false)} basic color='red' inverted>
-                    <Icon name='remove' /> Ні
+                    <Icon name='remove' /> NO
                 </Button>
                 <Button onClick={handleRemove} color='green' inverted>
-                    <Icon name='checkmark' /> Так
+                    <Icon name='checkmark' /> YES
                 </Button>
             </Modal.Actions>
         </Modal>

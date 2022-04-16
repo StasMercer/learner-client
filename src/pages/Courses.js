@@ -37,7 +37,7 @@ function Courses() {
                 })
             }
 
-            }>Завантажити ще</Button>}
+            }>Load more</Button>}
 
         </div>
     )

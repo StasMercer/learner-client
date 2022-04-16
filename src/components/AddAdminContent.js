@@ -29,7 +29,7 @@ function AddAdminContent(props) {
     return (
         <Dropdown.Item>
             <div>
-                <Input  onClick={e => e.stopPropagation()} placeholder={"Новий розділ"} value={contentName} onChange={(e)=>setContentName(e.target.value)}/>
+                <Input  onClick={e => e.stopPropagation()} placeholder={"New chapter"} value={contentName} onChange={(e)=>setContentName(e.target.value)}/>
                 <Icon style={{paddingLeft:'10px'}} name={"plus"} onClick={e => {
                     e.stopPropagation();
                     if(contentName.trim() !== '') createContent();

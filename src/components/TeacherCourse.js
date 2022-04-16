@@ -115,8 +115,8 @@ function TeacherCourse({course, history}) {
     }
 
     async function handleAddChapter(type) {
-        let chapterName = 'Новий розділ' + (course.chapters.length + 1);
-        let text = 'Напишіть текст';
+        let chapterName = 'New chapter' + (course.chapters.length + 1);
+        let text = 'Write text';
         await setChapterValues({
             chapterName,
             text,
@@ -136,7 +136,7 @@ function TeacherCourse({course, history}) {
                 visible={visible}
             >
                 <Menu.Item onClick={() => setVisible(false)} fluid as={Button}>
-                    Закрити
+                    Close
                     <Icon name="close"/>
                 </Menu.Item>
                 {course.chapters.map((chapter, index) => {
@@ -164,18 +164,18 @@ function TeacherCourse({course, history}) {
                 {!course.chapters.find((elem) => elem.type === 'control') && (
                     <Menu.Item>
                         <div>
-                            <Dropdown fluid text={'Додати'}>
+                            <Dropdown fluid text={'Add'}>
                                 <Dropdown.Menu>
                                     <Dropdown.Item
                                         onClick={() => {
                                             handleAddChapter('lecture');
                                         }}
                                         icon={'book'}
-                                        text={'Лекція'}
+                                        text={'Lecture'}
                                     />
                                     <Dropdown.Item
                                         onClick={() => handleAddChapter('test')}
-                                        text={'Тест'}
+                                        text={'Test'}
                                         icon={'question'}
                                     />
 
@@ -183,7 +183,7 @@ function TeacherCourse({course, history}) {
                                         onClick={() =>
                                             handleAddChapter('control')
                                         }
-                                        text={'Контроль'}
+                                        text={'Exam'}
                                         icon={'chess queen'}
                                     />
                                 </Dropdown.Menu>
@@ -192,7 +192,7 @@ function TeacherCourse({course, history}) {
                     </Menu.Item>
                 )}
                 <Menu.Item onClick={() => setRemoveCourseOpen(true)} fluid as={Button}>
-                    Видалити курс
+                    Delete course
                     <Icon name="trash"/>
                 </Menu.Item>
             </Sidebar>
@@ -218,17 +218,17 @@ function TeacherCourse({course, history}) {
                     )}
                     <Confirm
                         open={openConfirm}
-                        content="Ви впевнені що хочете видалити частину?"
-                        cancelButton={'Ні'}
-                        confirmButton={'Так'}
+                        content="Are you sure?"
+                        cancelButton={'No'}
+                        confirmButton={'Yes'}
                         onCancel={() => setOpenConfirm(false)}
                         onConfirm={handleRemoveChapter}
                     />
                     <Confirm
                         open={removeCourseOpen}
-                        content="Ви впевнені що хочете видалити курс"
-                        cancelButton={'Ні'}
-                        confirmButton={'Так'}
+                        content="Are you sure?"
+                        cancelButton={'No'}
+                        confirmButton={'Yes'}
                         onCancel={() => setRemoveCourseOpen(false)}
                         onConfirm={handleRemoveCourse}
                     />

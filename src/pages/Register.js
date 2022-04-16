@@ -46,8 +46,8 @@ function Register(props) {
             <Form onSubmit={onSubmit} noValidate loading={loading ? true: false}>
                 <Form.Field>
                     <Form.Input
-                        label="Введіть ім'я"
-                        placeholder="Ім'я"
+                        label="Name"
+                        placeholder="John"
                         name="firstName"
                         error={errors.firstName && !values.firstName ? true : false}
                         onChange={onChange}
@@ -55,8 +55,8 @@ function Register(props) {
                 </Form.Field>
                 <Form.Field>
                     <Form.Input
-                        label="Введіть фамілію"
-                        placeholder="Фамілія"
+                        label="Surname"
+                        placeholder="Doe"
                         name="lastName"
                         error={errors.lastName && !values.lastName ? true : false}
                         onChange={onChange}
@@ -64,8 +64,8 @@ function Register(props) {
                 </Form.Field>
                 <Form.Field>
                     <Form.Input
-                        label="Введіть email"
-                        placeholder="email"
+                        label="Email"
+                        placeholder="john.doe@gmail.com"
                         name="email"
                         error={errors.email && !values.email}
                         onChange={onChange}
@@ -74,8 +74,8 @@ function Register(props) {
                 <Form.Field>
                     <Form.Input
                         type="password"
-                        label="Введіть пароль"
-                        placeholder="Пароль"
+                        label="Enter the password"
+                        placeholder="password"
                         name="password"
                         error={errors.password && !values.password ? true : false}
                         onChange={onChange}
@@ -84,18 +84,18 @@ function Register(props) {
                 <Form.Field>
                     <Form.Input
                         type="password"
-                        label="Підтвердіть пароль"
-                        placeholder="Пароль"
+                        label="Confirm password"
+                        placeholder="Password"
                         name="confirmPassword"
                         error={errors.confirmPassword && !values.confirmPassword ? true : false}
                         onChange={onChange}
                     />
                 </Form.Field>
                 <Form.Group inline>
-                    <label>Оберіть роль</label>
+                    <label>Choose role</label>
                     <Form.Field
                         control={Radio}
-                        label="Учень"
+                        label="Student"
                         name="role"
                         value="student"
                         checked={values.role === "student"}
@@ -103,7 +103,7 @@ function Register(props) {
                     />
                     <Form.Field
                         control={Radio}
-                        label="Учитель"
+                        label="Teacher"
                         name="role"
                         value="teacher"
                         checked={values.role === "teacher"}
@@ -112,7 +112,7 @@ function Register(props) {
                 </Form.Group>
 
                 <Button primary color="blue" type="submit">
-                    Підтвердити
+                    Confirm
                 </Button>
             </Form>
             <MessageError errors={errors}/>

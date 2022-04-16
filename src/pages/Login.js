@@ -38,7 +38,7 @@ function Login(props) {
             >
                 <Form.Field>
                     <Form.Input
-                        label="Введіть email"
+                        label="Email"
                         placeholder="Email"
                         name="email"
                         error={errors.email && !values.email ? true : false}
@@ -47,8 +47,8 @@ function Login(props) {
                 </Form.Field>
                 <Form.Field>
                     <Form.Input
-                        label="Введіть пароль"
-                        placeholder="Пароль"
+                        label="Password"
+                        placeholder="Password"
                         name="password"
                         type={"password"}
                         error={
@@ -58,7 +58,7 @@ function Login(props) {
                     />
                 </Form.Field>
                 <Button primary color="blue" type="submit">
-                    Підтвердити
+                    Confirm
                 </Button>
             </Form>
             <MessageError errors={errors} />

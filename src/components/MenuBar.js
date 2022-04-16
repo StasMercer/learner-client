@@ -37,7 +37,7 @@ function MenuBar(props) {
                 as={Link}
                 to="/register"
             >
-                Реєстрація
+                Register
             </Menu.Item>
             <Menu.Item
                 name="login"
@@ -46,7 +46,7 @@ function MenuBar(props) {
                 as={Link}
                 to="/login"
             >
-                Увійти
+                Login
             </Menu.Item>
         </Menu.Menu>
     );
@@ -71,7 +71,7 @@ function MenuBar(props) {
                 as={Link}
                 to="/cyclecourses"
             >
-                Цикли курсів
+                Course groups
             </Menu.Item>
 
             <Menu.Item
@@ -81,7 +81,7 @@ function MenuBar(props) {
                 as={Link}
                 to="/courses"
             >
-                Курси
+                Courses
             </Menu.Item>
             <Menu.Item
                 name="about"
@@ -90,7 +90,7 @@ function MenuBar(props) {
                 as={Link}
                 to="/about"
             >
-                Про ресурс
+                About
             </Menu.Item>
             {data.getAdminContent.map(cont => {
                 if(cont.contentName === 'home') return null;
