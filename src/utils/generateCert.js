@@ -1,7 +1,7 @@
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import moment from 'moment';
-import 'moment/locale/uk';
+import 'moment/locale/es-us';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
