@@ -28,7 +28,7 @@ export default function Home() {
                 <Step>
                     <Icon name='payment' />
                     <Step.Content>
-                        <Step.Title>Get the sertificate</Step.Title>
+                        <Step.Title>Get the certificate</Step.Title>
                     </Step.Content>
                 </Step>
             </Step.Group>
@@ -43,10 +43,10 @@ export default function Home() {
                     <Label size={"large"} color={"teal"}>Step by step learning</Label>
                 </List.Item>
                 <List.Item >
-                    <Label size={"large"} color={"orange"}>Track your proggress</Label>
+                    <Label size={"large"} color={"orange"}>Track your progress</Label>
                 </List.Item>
                 <List.Item >
-                    <Label size={"large"} color={"purple"}>Get the sertificate</Label>
+                    <Label size={"large"} color={"purple"}>Get the certificate</Label>
                 </List.Item>
             </List>
 
@@ -55,7 +55,7 @@ export default function Home() {
             </h1>
             <List >
                 <List.Item>
-                    <Label size={"large"} color={"brown"}>Convinient interface to create courses</Label>
+                    <Label size={"large"} color={"brown"}>Convenient interface to create courses</Label>
                 </List.Item>
                 <List.Item >
                     <Label size={"large"} color={"green"}>Edit courses whenever you want</Label>

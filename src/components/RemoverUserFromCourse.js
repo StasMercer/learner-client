@@ -36,7 +36,7 @@ function RemoveUserFromCourse({courseId}) {
             <Header icon='archive' content='Confirm action' />
             <Modal.Content>
                 <p>
-                    Are you sure, all proggress will be deleted.
+                    Are you sure, all progress will be deleted.
                 </p>
             </Modal.Content>
             <Modal.Actions>
