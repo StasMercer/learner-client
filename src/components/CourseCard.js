@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 function CourseCard({ course }) {
-    moment.locale('uk');
+    // moment.locale('uk');
 
     return (
         <Card fluid>
