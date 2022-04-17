@@ -1,7 +1,7 @@
 import { Button, Card, Icon, Label } from 'semantic-ui-react';
 import React from 'react';
 import moment from 'moment';
-import 'moment/locale/en-us';
+// import 'moment/locale/en-us';
 import { Link } from 'react-router-dom';
 
 
